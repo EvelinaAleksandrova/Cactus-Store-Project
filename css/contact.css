@@ -1,0 +1,17 @@
+h1{
+    font-size: 45px;
+    margin-bottom: 70px;
+}
+.container-contact{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row;
+}
+p {
+  margin-left: 10%;
+    margin-right: 5%;
+    font-size: 23px;
+}
+.mapouter{
+    margin-right: 9%;
+}
