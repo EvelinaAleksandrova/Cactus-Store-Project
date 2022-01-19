@@ -13,7 +13,7 @@
     <link rel="about" href="navigation/about-us.html">
     <link rel="contact" href="navigation/contact.html">
 
-    <link rel="cactus" href="/store/cactus.php">
+    <link rel="cactus" href="navigation/cactus.php">
 
 </head>
 <body>
@@ -32,7 +32,7 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a href="/store/cactus.php">Cactus</a>
+            <a href="navigation/cactus.php">Cactus</a>
             <a href="#succulents">Succulents</a>
             <a href="#ground">Ground</a>
             <a href="#pots">Pots</a>
