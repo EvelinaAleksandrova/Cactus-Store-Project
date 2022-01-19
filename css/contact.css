@@ -15,10 +15,14 @@ p {
 }
 .mapouter{
     margin-right: 9%;
+    margin-bottom: 3em;
 }
 #delivery{
     height: 200px;
     width: 300px;
 
+}
+.footer{
+    position: fixed;
 }
 
