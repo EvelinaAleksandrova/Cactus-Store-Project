@@ -38,10 +38,9 @@
             <a href="#pots">Pots</a>
         </div>
     </div>
-    <a href="login.php">Login</a>
     <a href="#" class="cart">
         <div class="cart-image">
-            <img src="images/shopping-cart.png" class="img-fluid" >
+            <img src="images/shopping-cart.png" class="img-fluid" >Cart
         </div>
     </a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>

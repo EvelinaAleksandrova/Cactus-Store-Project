@@ -1,4 +1,17 @@
+<?php
+$connection = mysqli_connect('localhost', 'root');
+if(!$connection){
+    die("Database Connection Failed") . mysqli_error($connection);
+}
+$selectDb = mysqli_select_db($connection, 'cactusstore');
+if(!$selectDb){
+    die("Database Selection Failed.") . mysqli_error($connection);
+}
+$sql = "SELECT * FROM cactus";
+//$fea = $connection->query($sql);
+$result = mysqli_query($connection, $sql);
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +22,7 @@
     <link rel="icon" type="image/x-icon" href="../images/cactus%20(1).png">
 
     <link rel="stylesheet" href="/css/style.css">
-<link rel="style" href="/css/cactus.css">
+    <link rel="stylesheet" href="/css/cactus.css">
 
     <link rel="home" href="/navigation/home.html">
     <link rel="article" href="/navigation/articles.html">
@@ -42,19 +55,46 @@
             <a href="#pots">Pots</a>
 
         </div>
-        <a href="/login.php">Login</a>
+
     </div>
-    <a href="#" class="cart">
+    <a href="cart.php" class="cart">
         <div class="cart-image">
-            <img src="/images/shopping-cart.png" class="img-fluid" >
+            <img src="/images/shopping-cart.png" class="img-fluid">
         </div>
     </a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 
-<div class="footer">
-    <p>&copy; 2022 Cactus Store. All rights reserved.</p>
+<div class="title-cactuses" style="text-align: center">
+    <h1 style="font-size: 45px">Cactuses</h1>
 </div>
+
+<div class="cactus-container">
+    <?php while ($cactusProduct = mysqli_fetch_assoc($result)){?>
+
+        <div class="card">
+            <img src="<?php echo $cactusProduct['image']; ?>" alt="Avatar"
+                 style="width:100%"
+                 height="300px">
+            <div class="container">
+                <h4><b><?php echo $cactusProduct['name']; ?></b></h4>
+                <p style="text-align: center; margin-top: 0"><b>
+                        Sort:</b>&#160;<?php echo $cactusProduct['sort']; ?></p>
+                <p style="font-size: 24px"><b>Price</b>&#160;
+                <p style="color: orange; text-align: center; font-size: 30px; margin-top: 0">
+                    <b><?php echo $cactusProduct['price']; ?></b>&#160;leva</p>
+                </p>
+                <a class="btn-add-to-cart" href="" role="button">Add to Cart</a>
+
+            </div>
+        </div>
+    <?php } ?>
+
+</div>
+
+<!--<div class="footer">-->
+<!--    <p>&copy; 2022 Cactus Store. All rights reserved.</p>-->
+<!--</div>-->
 <script src="/script.js"></script>
 
 </body>
