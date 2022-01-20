@@ -53,19 +53,42 @@
     Login
 </h1>
 <div class="login-form">
-<form action="login.php" class="form-signin" method="post">
+<form action="authentication.php" onsubmit="return validation()" class="form-signin" method="post">
 
     <label for="user"  class="sr-only">Username</label>
-    <input type="text"  id="username" name="username" class="form-control mb-2" placeholder="Username" >
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input type="text"  id="user" name="user" class="form-control mb-2" placeholder="Username" >
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
 
 
     <button class="btn-login" name="submit" type="submit">Login</button>
     <p class="lead">Not a member <a href="register.php">Register Here!</a></p>
 
 </form>
-
 </div>
+    <script>
+        function validation()
+        {
+            let id=document.f1.user.value;
+            let ps=document.f1.pass.value;
+            if(id.length==="" && ps.length==="") {
+                alert("User Name and Password fields are empty");
+                return false;
+            }
+            else
+            {
+                if(id.length==="") {
+                    alert("User Name is empty");
+                    return false;
+                }
+                if (ps.length==="") {
+                    alert("Password field is empty");
+                    return false;
+                }
+            }
+        }
+    </script>
+
+
 </body>
 </html>
