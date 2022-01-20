@@ -22,9 +22,10 @@ h1 {
     font-size: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    border-radius: 80%;
+    border-radius: 60%;
     margin-bottom: 20px;
     text-decoration: none;
+    width: 300px;
 
 }
 .container{

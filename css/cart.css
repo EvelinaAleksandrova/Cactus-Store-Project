@@ -6,9 +6,51 @@ table, th, td {
     display: flex;
     justify-content: center;
     align-content: center;
-    width: 600px;
+    width: 650px;
     margin: auto;
+    margin-bottom: 60px;
 }
 td{
     height: 100px;
+}
+.remove-all-items a{
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+.form-make-order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    width: 600px;
+    border: 5px double orange;
+    margin: 0 auto;
+    background-color: rgba(169, 169, 169, 0.23);
+    box-shadow: 0px 1px 5px 8px rgb(255, 204, 81);
+    margin-bottom: 200px;
+}
+
+#username {
+    margin-top: 30px;
+}
+
+.form-make-order input {
+    height: 25px;
+    width: 400px;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.order {
+    background-color: orange;
+    color: white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 590px;
+    margin-bottom: 30px;
+
 }

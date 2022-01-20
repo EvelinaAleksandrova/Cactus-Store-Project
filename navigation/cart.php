@@ -140,15 +140,46 @@ $products = $stmt->fetchAll();
 
                 <?php $total = $total + $product['price']; ?>
             <?php endforeach; ?>
-
             <tr>
                 <td colspan="5" align="right"><h4 style="color: #ffac00">Total Price:&#160;<?php print $total ?>
                         leva</h4></td>
             </tr>
+
         </table>
 
 
     <?php endif; ?>
+<!--    <div class="remove-all-items"-->
+<!--         style="margin-top:7px;margin-right:7px; background-color: rgba(127,255,212,0);text-align: center">-->
+<!--        <a href="cactus.php?action=emptyall" id="remove-all-items"-->
+<!--           style="background: rgba(127,255,212,0.03); color: red;font-weight: bold;font-size: 20px"-->
+<!--        > REMOVE ALL ITEMS-->
+<!--        </a>-->
+<!--    </div>-->
+
+</div>
+
+<div class="form-make-order">
+    <form action="make-order-to-database.php" class="form" method="post">
+
+        <label for="username" class="sr-only">Name</label>
+        <input id="username" name="username"
+               class="form-control mb-2" placeholder="Name" required><br>
+
+        <label for="email" class="sr-only">Email</label>
+        <input name="email" id="email"
+               class="form-control" placeholder="Email" required><br>
+
+        <label for="phone" class="sr-only">Phone Number</label>
+        <input name="phone" id="phone"
+               class="form-control" placeholder="Phone Number" required><br>
+
+        <label for="address" class="sr-only">Address</label>
+        <input name="address" id="address"
+               class="form-control" placeholder="Address for delivery.." required><br>
+
+        <button class="order" name="order" type="submit">Make order</button>
+    </form>
 
 </div>
 
