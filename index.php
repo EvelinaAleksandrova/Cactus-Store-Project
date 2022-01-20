@@ -27,6 +27,7 @@
     <a href="navigation/articles.html">Articles</a>
     <a href="navigation/contact.html">Contacts</a>
     <a href="navigation/about-us.html">About us</a>
+    <a href="navigation/add-product.php">Add Product</a>
     <div class="dropdown">
         <button class="dropbtn">Store
             <i class="fa fa-caret-down"></i>
