@@ -83,7 +83,7 @@ $products = $stmt->fetchAll();
     <a href="articles.html">Articles</a>
     <a href="contact.html">Contacts</a>
     <a href="about-us.html">About us</a>
-    <a href="add-product.php">Add Product</a>
+    <a href="add-product.php">Admin</a>
     <div class="dropdown">
         <button class="dropbtn">Store
             <i class="fa fa-caret-down"></i>
@@ -103,6 +103,9 @@ $products = $stmt->fetchAll();
             <img src="/images/shopping-cart.png" class="img-fluid">
         </div>
     </a>
+
+
+
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 

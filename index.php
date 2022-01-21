@@ -17,6 +17,7 @@
 
 </head>
 <body>
+
 <!--- Navigation Start here ---->
 <div class="topnav" id="myTopnav">
     <a href="navigation/home.html" class="active">
@@ -27,7 +28,8 @@
     <a href="navigation/articles.html">Articles</a>
     <a href="navigation/contact.html">Contacts</a>
     <a href="navigation/about-us.html">About us</a>
-    <a href="navigation/add-product.php">Add Product</a>
+    <a href="/navigation/add-product.php">Admin</a>
+
     <div class="dropdown">
         <button class="dropbtn">Store
             <i class="fa fa-caret-down"></i>
@@ -39,16 +41,30 @@
             <a href="#pots">Pots</a>
         </div>
     </div>
-    <a href="#" class="cart">
+    <a href="/navigation/cart.php" class="cart">
         <div class="cart-image">
-            <img src="images/shopping-cart.png" class="img-fluid" >Cart
+            <img src="images/shopping-cart.png" class="img-fluid" >
         </div>
     </a>
+
+
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+
+<div  style="text-align: center;background-color: rgba(195,197,195,0.08);padding-bottom: 30px;border-bottom: 1px solid black">
+    <a style="font-size: 30px;color: orange;font-weight: bold;text-decoration: none;text-align: center;margin-right: 20px"
+       href="/navigation/login.php"> Login</a>
+    <a style="font-size: 30px;color: orange;font-weight: bold;text-decoration: none;text-align: center"
+       href="/navigation/register.php"> Register</a>
 </div>
 <div class="header-container">
     <img  id="header-img" src="images/cactus-home.jpg" alt="" width="100%" height="auto">
     <a href="https://www.fontspace.com/category/title"><img id="title-cactus" src="https://see.fontimg.com/api/renderfont4/2OYRe/eyJyIjoiZnMiLCJoIjo4OCwidyI6MTI1MCwiZnMiOjcwLCJmZ2MiOiIjRkNCMTFFIiwiYmdjIjoiI0Y0RjRGNCIsInQiOjF9/Q2FjdHVzIFN0b3Jl/dryme-personal-use-bold.png" alt="Title fonts"></a>
+
+
+
+
 </div>
 <div class="footer">
     <p>&copy; 2022 Cactus Store. All rights reserved.</p>

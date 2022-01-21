@@ -1,3 +1,43 @@
+<?php
+
+session_start();
+
+$databaseHost     = 'localhost';
+$databaseName     = 'cactusstore';
+$databaseUsername = 'root';
+$databasePassword = '';
+
+$mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
+
+
+// If form submitted, collect email and password from form
+if (isset($_POST['login'])) {
+    $email    = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Check if a user exists with given username & password
+    $result = mysqli_query($mysqli, "select 'email', 'password' from users
+        where email='$email' and password='$password'");
+
+//    $resultAdmin = mysqli_query($mysqli, "select 'id' from users");
+
+    // Count the number of user/rows returned by query
+    $user_matched = mysqli_num_rows($result);
+
+    // Check If user matched/exist, store user email
+    if ($user_matched > 0) {
+
+//        if($resultAdmin === 1){
+            $_SESSION["email"] = $email;
+            header("location: add-product.php");
+//        }
+
+    } else {
+        echo "User email or password is not matched <br/><br/>";
+    }
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,7 +67,7 @@
     <a href="articles.html">Articles</a>
     <a href="contact.html">Contacts</a>
     <a href="about-us.html">About us</a>
-    <a href="add-product.php">Add Product</a>
+    <a href="add-product.php">Admin</a>
 
     <div class="dropdown">
         <button class="dropbtn">Store
@@ -49,46 +89,27 @@
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 <script src="../script.js"></script>
+
 <h1 style="text-align: center">
     Login
 </h1>
-<div class="login-form">
-<form action="authentication.php" onsubmit="return validation()" class="form-signin" method="post">
 
-    <label for="user"  class="sr-only">Username</label>
-    <input type="text"  id="user" name="user" class="form-control mb-2" placeholder="Username" >
+<div class="login-form">
+
+<form action="login.php" class="form-signin" method="post" name="form1">
+
+    <label for="user"  class="sr-only">Email</label>
+    <input type="email"  id="user" name="email" class="form-control mb-2" placeholder="Email" required>
+
     <label for="password" class="sr-only">Password</label>
     <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
 
 
-    <button class="btn-login" name="submit" type="submit">Login</button>
+    <button class="btn-login" name="login" type="submit">Login</button>
     <p class="lead">Not a member <a href="register.php">Register Here!</a></p>
 
 </form>
 </div>
-    <script>
-        function validation()
-        {
-            let id=document.f1.user.value;
-            let ps=document.f1.pass.value;
-            if(id.length==="" && ps.length==="") {
-                alert("User Name and Password fields are empty");
-                return false;
-            }
-            else
-            {
-                if(id.length==="") {
-                    alert("User Name is empty");
-                    return false;
-                }
-                if (ps.length==="") {
-                    alert("Password field is empty");
-                    return false;
-                }
-            }
-        }
-    </script>
-
 
 </body>
 </html>

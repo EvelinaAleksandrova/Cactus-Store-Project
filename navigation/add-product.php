@@ -1,5 +1,15 @@
 <?php
+session_start();
+
+// This page can be accessed only after login
+// Redirect user to login page, if user email is not available in session
+
+
+if (!isset($_SESSION["email"])) {
+    header("location: login.php");
+}
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -23,6 +33,9 @@
 
 </head>
 <body class="text-center">
+
+
+
 <div class="topnav" id="myTopnav">
     <a href="home.html" class="active">
         <div class="logo-image">
@@ -32,7 +45,8 @@
     <a href="articles.html">Articles</a>
     <a href="contact.html">Contacts</a>
     <a href="about-us.html">About us</a>
-    <a href="add-product.php">Add Product</a>
+    <a href="add-product.php">Admin</a>
+    <a href="logout.php">Logout</a>
 
     <div class="dropdown">
         <button class="dropbtn">Store
@@ -53,17 +67,20 @@
             <img src="/images/shopping-cart.png" class="img-fluid">
         </div>
     </a>
+
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
 
 
-<div class="title-cactuses" style="text-align: center">
-    <h1 style="font-size: 45px">Add product</h1>
-</div>
+
 
 
 <div class="form-add-product">
+
     <form action="add-product-to-database.php" class="form" method="post">
+        <div class="title-cactuses" style="text-align: center">
+            <h1 style="font-size: 35px">Add product</h1>
+        </div>
 
         <label for="name" class="sr-only">Name</label>
         <input id="name" name="name"
