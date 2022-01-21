@@ -14,6 +14,12 @@ if(isset($_POST['submit']))
     $email = $_POST['email'];
     $description = $_POST['description'];
 
+    $username=$conn->real_escape_string($username);
+    $email=$conn->real_escape_string($email);
+    $description=$conn->real_escape_string($description);
+
+
+
     $sql = "INSERT INTO userquestions (username,email,description)
 VALUES ('$username','$email','$description')";
 

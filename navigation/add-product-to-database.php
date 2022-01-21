@@ -16,6 +16,12 @@ if(isset($_POST['submit']))
     $image = $_POST['image'];
     $productcode = $_POST['productcode'];
 
+    $name=$conn->real_escape_string($name);
+    $price=$conn->real_escape_string($price);
+    $sort=$conn->real_escape_string($sort);
+    $image=$conn->real_escape_string($image);
+    $productcode=$conn->real_escape_string($productcode);
+
     $sql = "INSERT INTO cactus (name,price,sort,image,productcode)VALUES ('$name','$price','$sort','$image','$productcode')";
     if (mysqli_query($conn, $sql)) {
         echo "New record has been added successfully !";
