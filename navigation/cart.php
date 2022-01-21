@@ -15,6 +15,7 @@ if ($action == 'addcart' && $_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //Finding the product by code
     $query = "SELECT * FROM cactus WHERE productcode=:productcode";
+
     $stmt = $connection->prepare($query);
     $stmt->bindParam('productcode', $_POST['productcode']);
     $stmt->execute();

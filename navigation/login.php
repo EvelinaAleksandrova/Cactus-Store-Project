@@ -10,28 +10,28 @@ $databasePassword = '';
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
 
 
-// If form submitted, collect email and password from form
+// If form submitted collect
 if (isset($_POST['login'])) {
     $email    = $_POST['email'];
     $password = $_POST['password'];
 
-    // Check if a user exists with given username & password
+
+    $email=$mysqli->real_escape_string($email);
+    $password=$mysqli->real_escape_string($password);
+
+    // Check user exists
     $result = mysqli_query($mysqli, "select 'email', 'password' from users
         where email='$email' and password='$password'");
 
 //    $resultAdmin = mysqli_query($mysqli, "select 'id' from users");
-
     // Count the number of user/rows returned by query
+
     $user_matched = mysqli_num_rows($result);
 
-    // Check If user matched/exist, store user email
+    // Check exist, store user email
     if ($user_matched > 0) {
-
-//        if($resultAdmin === 1){
             $_SESSION["email"] = $email;
             header("location: add-product.php");
-//        }
-
     } else {
         echo "User email or password is not matched <br/><br/>";
     }

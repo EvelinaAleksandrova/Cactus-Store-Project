@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -42,11 +41,11 @@
             </div>
         </div>
 
-            <a href="cart.php" class="cart">
-                <div class="cart-image">
-                    <img src="/images/shopping-cart.png" class="img-fluid" >
-                </div>
-            </a>
+        <a href="cart.php" class="cart">
+            <div class="cart-image">
+                <img src="/images/shopping-cart.png" class="img-fluid">
+            </div>
+        </a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
     <script src="../script.js"></script>
@@ -59,12 +58,12 @@
 
         <form action="register.php" class="form-signin" method="post" name="form1">
 
-            <label for="user"  class="sr-only">Name</label>
-            <input type="text"  id="user" name="name" class="form-control mb-2" placeholder="Name" required>
+            <label for="user" class="sr-only">Name</label>
+            <input type="text" id="user" name="name" class="form-control mb-2" placeholder="Name" required>
 
 
-            <label for="user"  class="sr-only">Email</label>
-            <input type="email"  id="user" name="email" class="form-control mb-2" placeholder="Email" required>
+            <label for="user" class="sr-only">Email</label>
+            <input type="email" id="user" name="email" class="form-control mb-2" placeholder="Email" required>
 
             <label for="password" class="sr-only">Password</label>
             <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
@@ -74,12 +73,11 @@
             <p class="lead">Member <a href="login.php">Login Here!</a></p>
 
 
-
             <?php
             session_start();
 
-            $databaseHost     = 'localhost';
-            $databaseName     = 'cactusstore';
+            $databaseHost = 'localhost';
+            $databaseName = 'cactusstore';
             $databaseUsername = 'root';
             $databasePassword = '';
 
@@ -88,36 +86,43 @@
 
             // Check If form submitted, insert user data into database.
             if (isset($_POST['register'])) {
-            $name     = $_POST['name'];
-            $email    = $_POST['email'];
-            $password = $_POST['password'];
+                $name = $_POST['name'];
+                $email = $_POST['email'];
+                $password = $_POST['password'];
 
-            // If email already exists, throw error
-            $email_result = mysqli_query($mysqli, "select 'email' from users where email='$email' and password='$password'");
+                $name=$mysqli->real_escape_string($name);
+                $email=$mysqli->real_escape_string($email);
+                $password=$mysqli->real_escape_string($password);
 
-            // Count the number of row matched
-            $user_matched = mysqli_num_rows($email_result);
 
-            // If number of user rows returned more than 0, it means email already exists
-            if ($user_matched > 0) {
-            echo "<br/><br/><strong>Error: </strong> User already exists with the email id '$email'.";
-            } else {
-            // Insert user data into database
-            $result   = mysqli_query($mysqli, "INSERT INTO users(name,email,password) VALUES('$name','$email','$password')");
 
-            // check if user data inserted successfully.
-            if ($result) {
-            echo "<br/><br/>User Registered successfully.";
-            } else {
-            echo "Registration error. Please try again." . mysqli_error($mysqli);
-            }
-            }
+                // If email already exists, throw error
+                $email_result = mysqli_query($mysqli, "select 'email' from 
+                    users where email='$email' and password='$password'");
+
+                // Count the number of row matched
+                $user_matched = mysqli_num_rows($email_result);
+
+                // If number of user rows returned more than 0, it means email already exists
+                if ($user_matched > 0) {
+                    echo "<br/><br/><strong>Error: </strong> User already exists with the email id '$email'.";
+                } else {
+                    // Insert user data into database
+                    $result = mysqli_query($mysqli, "INSERT INTO users(name,email,password) 
+VALUES('$name','$email','$password')");
+
+                    // check if user data inserted successfully.
+                    if ($result) {
+                        echo "<br/><br/>User Registered successfully.";
+                    } else {
+                        echo "Registration error. Please try again." . mysqli_error($mysqli);
+                    }
+                }
             }
 
             ?>
         </form>
     </div>
-
 
 
 </body>
